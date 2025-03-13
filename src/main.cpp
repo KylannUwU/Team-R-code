@@ -346,9 +346,9 @@ void autonomous(void)
   case 11:
     left2();
     break;
-    // case 10:
-    //  skills();
-    //  break;
+    case 12:
+     skills();
+     break;
   }
 }
 
@@ -523,7 +523,7 @@ void usercontrol(void)
 int main()
 {
   // Set up callbacks for autonomous and driver control periods.
-  Competition.autonomous(left2);
+  Competition.autonomous(skills);
   Competition.drivercontrol(usercontrol);
 
   // Run the pre-autonomous function.

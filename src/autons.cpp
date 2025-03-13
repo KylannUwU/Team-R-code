@@ -7,10 +7,21 @@
  * drive, heading, turning, and swinging, as well as the PID and
  * exit conditions, check the docs.
  */
-
-
  
 
+ void skills(void){
+  Clam.set(false);
+  intake.spin(fwd, 100, pct);
+  wait(500, msec);
+  intake.stop();
+  chassis.drive_distance(4);
+  chassis.turn_to_angle(115);
+  chassis.drive_distance(-20);
+  chassis.drive_max_voltage = 3;
+  chassis.drive_distance(-10);
+  chassis.drive_max_voltage = 10;
+  Clam.set(true);
+ }
 
  void left1(void){
   Clam.set(false);
@@ -30,51 +41,14 @@
   chassis.drive_distance(30);
   wait(1.2, sec);
   intake.stop();
-  intake.spin( fwd, -100, pct);
+  intake.spin(fwd, -100, pct);
   chassis.drive_distance(-30);
   intake.stop();
   //chassis.turn_to_angle(90);
   chassis.turn_to_angle(-110);
   chassis.drive_distance(9);
   Mop.set(true);
-  //  Clam.set(false);
-  //  // Drivetrain.setDriveVelocity(75, percent);
-  //  //  //Drivetrain.turnFor(left, 25, deg);
-  //  // Drivetrain.driveFor(vex::directionType::rev, 25, inches);
- 
-  //  chassis.drive_distance(-33);
-  //  // wait(0.5, sec);
-  //  // Drivetrain.setDriveVelocity(50, percent);
-  //  // Drivetrain.driveFor(vex::directionType::rev, 7, inches);
-  //  // chassis.drive_distance(-7);
-  //  // Drivetrain.setDriveVelocity(100, percent);
-  //  Clam.set(true);
-  //  wait(1, sec);
-  //  intake.spin(fwd, 100, pct);
-  //  wait(1, sec);
-  //  intake.stop();
-  //  intake.spin(vex::directionType::rev, 100, pct);
-  //  wait(1, sec);
-  //  intake.stop();
-  //  chassis.turn_to_angle(94);
-  //  // Drivetrain.turnFor(vex::right, 94, deg);
-  //  chassis.drive_distance(15.5);
-  //  // Drivetrain.driveFor(fwd, 15.5, inches);
-  //  intake.spin(fwd, 100, pct);
-  //  // Flag = true;
-  //  // targetValueLB = LBValueRest;
-  //  chassis.drive_distance(10);
-  //  // Drivetrain.driveFor(fwd, 5, inches);
-  //  //  // //wait(1.5, sec);
-  //  intake.stop();
-  //  intake.spin(fwd, -20, pct);
-  //  chassis.turn_to_angle(87);
-  //  // // //chassis.turn_to_angle(37);
-  //  // Drivetrain.turnFor(vex::left, 37, deg);
-  //  // // //chassis.drive_distance(-24);
-  //  // Drivetrain.driveFor(vex::directionType::rev, 24, inches);
-  //  // //Drivetrain.driveFor(fwd, 20, inches);
-  //  // //Drivetrain.turnFor(vex::left,40,deg);
+  ;
  }
  void left2(){
   chassis.drive_distance(-19);

@@ -18,4 +18,4 @@ void left1();
 void left2();
 void right1();
 void right2();
-//void skills();
+void skills();
