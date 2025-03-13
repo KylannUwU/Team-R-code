@@ -25,7 +25,7 @@
   chassis.turn_to_angle(3);
   intake.spin(fwd, 100, pct);
   chassis.drive_distance(27);
-  wait(300, msec);
+  wait(500, msec);
   chassis.turn_to_angle(252);
   //chassis.drive_max_voltage = 12;
   chassis.drive_distance(25);
@@ -57,19 +57,27 @@
   Clam.set(true);
   chassis.turn_to_angle(0);
   intake.spin(fwd, 100, pct);
-  chassis.drive_distance(25);
+  chassis.drive_distance(26);
   chassis.drive_max_voltage = 10;
+  wait(1.5, sec);
+  chassis.turn_to_angle(91);
+  chassis.drive_distance(33);
   wait(1, sec);
-  chassis.turn_to_angle(90);
-  chassis.drive_distance(25);
-  wait(1, sec);
-  chassis.turn_to_angle(183);
+  chassis.drive_distance(-4);
+  chassis.turn_to_angle(184);
   chassis.drive_max_voltage = 6;
-  chassis.drive_distance(20);
+  chassis.drive_distance(25);
   wait(1000, msec);
+  chassis.drive_distance(17);
+  wait(1000, msec);
+  chassis.drive_distance(-17);
+  chassis.turn_to_angle(91);
   chassis.drive_distance(15);
   wait(1000, msec);
-  
+  chassis.drive_distance(-15);
+  chassis.turn_to_angle(50);
+  chassis.drive_distance(-25);
+  Clam.set(false);
  }
 
  void left1(void){
