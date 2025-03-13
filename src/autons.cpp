@@ -85,22 +85,27 @@
   wait(1, sec);
   chassis.drive_distance(8);
   intake.stop();
-  chassis.turn_to_angle(-130);
-  chassis.drive_distance(-28);
+  chassis.turn_to_angle(-128);
+  chassis.drive_distance(-27);
   chassis.drive_max_voltage = 3;
-  chassis.drive_distance(-9);
+  chassis.drive_distance(-10);
   chassis.drive_max_voltage = 10;
   wait(100, msec);
   Clam.set(true);
   wait(300, msec);
   chassis.turn_to_angle(0);
-  // intake.spin(fwd, 100, pct);
-  // chassis.drive_distance(25);
-  // wait(2, sec);
-  // intake.stop();
-  // chassis.turn_to_angle(140);
-  // chassis.drive_distance(16);
-  // Mop.set(true);
+  intake.spin(fwd, 100, pct);
+  chassis.drive_distance(25);
+  wait(2, sec);
+  intake.stop();
+  chassis.turn_to_angle(170);
+  chassis.drive_max_voltage = 10;
+  chassis.drive_distance(30);
+  chassis.drive_max_voltage = 3;
+  chassis.drive_distance(10);
+  chassis.drive_max_voltage = 10;
+  stork.spin(fwd, 100, pct);
+  Mop.set(true);
 
 
  }
