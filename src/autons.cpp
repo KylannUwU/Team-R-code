@@ -11,37 +11,45 @@
 
  void skills(void){
   Clam.set(false);
+  //score on alliance goal
   intake.spin(fwd, 100, pct);
   wait(500, msec);
   intake.stop();
   chassis.drive_distance(4);
+  //go for mobile goal 
   chassis.turn_to_angle(117);
   chassis.drive_distance(-19);
   chassis.drive_max_voltage = 3;
   chassis.drive_distance(-10);
   chassis.drive_max_voltage = 12;
   Clam.set(true);
-  wait(100, msec);
+  wait(500, msec);
+  //go for ring 1
   chassis.turn_to_angle(3);
   intake.spin(fwd, 100, pct);
   chassis.drive_distance(27);
-  wait(500, msec);
+  wait(1500, msec);
+  // go for ring2
   chassis.turn_to_angle(252);
   //chassis.drive_max_voltage = 12;
   chassis.drive_distance(25);
   wait(300, msec);
+  //go for ring 3
   chassis.turn_to_angle(178);
   wait(300, msec);
   chassis.drive_max_voltage = 6;
   chassis.drive_distance(20);
   wait(1000, msec);
+  //go for ring 4
   chassis.drive_distance(15);
   wait(1000, msec);
+  //go for ring 5
   chassis.drive_distance(-15);
   chassis.turn_to_angle(271);
   chassis.drive_distance(15);
   wait(1000, msec);
   chassis.drive_distance(-15);
+  //drop goal in positive
   chassis.turn_to_angle(40);
   chassis.drive_max_voltage = 10;
   chassis.drive_distance(-20);
@@ -49,16 +57,17 @@
   intake.stop();
   chassis.drive_distance(20);
   chassis.drive_max_voltage = 12;
-  chassis.turn_to_angle(273);
+  //go for mobile goal
+  chassis.turn_to_angle(272);
   chassis.drive_distance(-60);
+  wait(100, msec);
   chassis.drive_max_voltage = 3;
-  chassis.drive_distance(-20);
-  chassis.drive_max_voltage = 12;
+  chassis.drive_distance(-15);
+  chassis.drive_max_voltage = 10;
   Clam.set(true);
   chassis.turn_to_angle(0);
   intake.spin(fwd, 100, pct);
   chassis.drive_distance(26);
-  chassis.drive_max_voltage = 10;
   wait(1.5, sec);
   chassis.turn_to_angle(91);
   chassis.drive_distance(33);
