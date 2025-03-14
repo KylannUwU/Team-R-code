@@ -25,9 +25,9 @@
   Clam.set(true);
   wait(500, msec);
   //go for ring 1
-  chassis.turn_to_angle(3);
+  chassis.turn_to_angle(4);
   intake.spin(fwd, 100, pct);
-  chassis.drive_distance(27);
+  chassis.drive_distance(28);
   wait(1500, msec);
   // go for ring2
   chassis.turn_to_angle(252);
@@ -65,26 +65,32 @@
   chassis.drive_distance(-15);
   chassis.drive_max_voltage = 10;
   Clam.set(true);
+  wait(200, msec);
+  //go for ring 1
   chassis.turn_to_angle(0);
   intake.spin(fwd, 100, pct);
   chassis.drive_distance(26);
   wait(1.5, sec);
+  //go for ring 2
   chassis.turn_to_angle(91);
   chassis.drive_distance(33);
   wait(1, sec);
+  //go for ring 3
   chassis.drive_distance(-4);
   chassis.turn_to_angle(184);
   chassis.drive_max_voltage = 6;
+  //go for ring 4
   chassis.drive_distance(25);
   wait(1000, msec);
   chassis.drive_distance(17);
   wait(1000, msec);
-  chassis.drive_distance(-17);
+//go for ring 5
+  chassis.drive_distance(-15);
   chassis.turn_to_angle(91);
   chassis.drive_distance(15);
   wait(1000, msec);
   chassis.drive_distance(-15);
-  chassis.turn_to_angle(50);
+  chassis.turn_to_angle(250);
   chassis.drive_distance(-25);
   Clam.set(false);
  }
