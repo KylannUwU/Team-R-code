@@ -24,7 +24,7 @@ controller Controller1 = controller(primary);
 motor intake1 = motor(PORT2, ratio6_1, true);
 motor intake2 = motor(PORT21, ratio18_1, true);
 motor stork = motor(PORT9, ratio18_1, false);
-rotation rotationSensor = rotation(PORT4, true);
+rotation rotationSensor = rotation(PORT4);
 
 motor_group intake = motor_group(intake1, intake2); 
 digital_out Clam = digital_out(Brain.ThreeWirePort.A);

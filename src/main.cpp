@@ -109,24 +109,51 @@ Drive chassis(
 int current_auton_selection = 0;
 bool auto_started = false;
 
-int targetValueLB = 0;
+
+
+double kP = 2.5;  // Proportional gain
+double kI = 0.01; // Integral gain
+double kD = 3;  // Derivative gain
+
+double previousError = 0;
+double integral = 0;
+
+double targetValueLB = 350; // Desired target value
 
 void controlMotor()
 {
-  double encoderValue = rotationSensor.position(deg);
-  if (encoderValue > 350)
-    stork.spin(fwd, 50, pct);
-  else
-  {
-    double output = (67 * (atan(0.025 * (targetValueLB - encoderValue))));
-    stork.spin(fwd, output, pct);
-    Controller1.Screen.clearScreen();
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print(output);
-    Controller1.Screen.setCursor(2, 1);
-    Controller1.Screen.print(encoderValue);
-  }
+    double encoderValue = rotationSensor.position(deg);
+    double error = targetValueLB - encoderValue;
+    integral += error;
+    double derivative = error - previousError;
+    double output = (kP * error) + (kI * integral) + (kD * derivative);
+
+    if (output > 100) output = 100;
+    if (output < -100) output = -100;
+    
+  
+
+    if(targetValueLB < 220 )
+    {
+      if(abs(error) > 25)
+        stork.spin(fwd, 100, pct);  
+      else
+        stork.spin(fwd, -output, pct);
+    }
+    else
+      stork.spin(fwd, -output, pct);
+
+    // Update previous error
+    previousError = error;
+// Print values to terminal
+printf("Output: %.2f\n", output);
+printf("Desired: %.2f\n", targetValueLB);
+printf("Error: %.2f\n", error);
+
+printf("Encoder: %.2f\n", encoderValue);
+
 }
+
 
 /**
  * Function before autonomous. It prints the current auton number on the screen
@@ -383,9 +410,9 @@ void autonomous(void)
 /*                                                                           */
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
-const int LBValueRest = 10;
-const int LBValueTake = 45;
-const int LBValueExtend = 190;
+const int LBValueRest = 350;
+const int LBValueTake = 316;
+const int LBValueExtend = 195;
 const int topdscr = 177;
 const int botdscr = 187;
 
